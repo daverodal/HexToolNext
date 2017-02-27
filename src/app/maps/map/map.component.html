@@ -1,0 +1,29 @@
+<div *ngIf="map">
+  <a [routerLink]="'edit'">edit</a>
+  <div class="container">
+    <div class="row">
+      <div class="col-3 text-right">Url:</div>
+      <div class="col-9">{{map.mapUrl}}</div>
+    </div>
+    <div class="row">
+      <div class="col-3 text-right">Name:</div>
+      <div class="col-9">{{map.gameName}}</div>
+    </div>
+    <div class="row">
+      <div class="col-3 text-right">Width:</div>
+      <div class="col-9">{{map.mapWidth}}</div>
+    </div>
+    <div class="row">
+      <div class="col-3 text-right">numX:</div>
+      <div class="col-9">{{map.numX}}</div>
+    </div>
+    <div class="row">
+      <div class="col-3 text-right">numY:</div>
+      <div class="col-9">{{map.numY}}</div>
+    </div>
+  </div>
+</div>
+<p *ngIf="!loaded">
+  gimme a sec, just one sec
+</p>
+<app-hex-map [map]="map" [mapId]="mapId"></app-hex-map>

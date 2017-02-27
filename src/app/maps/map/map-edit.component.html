@@ -1,0 +1,9 @@
+<div *ngIf="loaded">
+  <button (click)="save()">Save </button>
+  <button (click)="cancel()">Cancel </button>
+  <input [(ngModel)]="map.mapUrl">
+  <input [(ngModel)]="map.numX">
+  <input [(ngModel)]="map.numX">
+
+</div>
+<app-hex-map [map]="map" [mapId]="mapId"></app-hex-map>

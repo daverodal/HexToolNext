@@ -1,0 +1,38 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/mixins";
+ul{
+  list-style-type:none;
+}
+body{
+  font-size:16px;
+}
+.left-col{
+  @include make-col(3);
+  ul{
+    list-style-type:none;
+
+  }
+}
+.middle-col{
+  @include make-col(3);
+}
+.right-col{
+  @include make-col(6);
+}
+@import "mixin";
+
+.text-right{
+  text-align:right;
+  justify-content:flex-end;
+}
+
+#map-wrapper{
+  position: relative;
+  #canvas-id{
+    z-index:2;
+    position: absolute;
+  }
+  #map-image{
+    position:absolute;
+  }
+}

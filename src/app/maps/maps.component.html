@@ -1,0 +1,13 @@
+<p>
+  maps works!
+</p>
+<div class="container-fluid">
+      <ul>
+        <li *ngFor="let map of maps | orderBy  : 'gameName' ">
+          <app-map-item [mapInfo]="map" ></app-map-item>
+        </li>
+      </ul>
+
+</div>
+
+

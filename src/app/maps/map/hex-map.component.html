@@ -1,0 +1,4 @@
+<div id="map-wrapper">
+  <canvas id="canvas-id" width="0" height="0"></canvas>
+  <img id="map-image" (load)="mapLoaded()" *ngIf="map" [ngStyle]="{width:map.mapWidth+'px'}" src="{{map.mapUrl}}">
+</div>

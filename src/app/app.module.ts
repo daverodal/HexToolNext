@@ -2,19 +2,48 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { NgPipesModule } from 'ngx-pipes';
+
 
 import { AppComponent } from './app.component';
+import { DatabindingComponent } from './databinding/databinding.component';
+import { PropertyBindingComponent } from './databinding/property-binding.component';
+import { EventBindingComponent } from './databinding/event-binding.component';
+import { TwoWayBindingComponent } from './databinding/two-way-binding.component';
+import { LifecycleComponent } from './lifecycle.component';
+import { HomeComponent } from './home.component';
+import { routing } from "./app.routing";
+import { MapsComponent } from './maps/maps.component';
+import { MapItemComponent } from './maps/map-item.component';
+import { MapComponent } from './maps/map/map.component';
+import { MapsService } from './maps.service';
+import { MapEditComponent } from './maps/map/map-edit.component';
+import {HexDrawService} from "./maps/map/hex-draw.service";
+import { HexMapComponent } from './maps/map/hex-map.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DatabindingComponent,
+    PropertyBindingComponent,
+    EventBindingComponent,
+    TwoWayBindingComponent,
+    LifecycleComponent,
+    HomeComponent,
+    MapsComponent,
+    MapItemComponent,
+    MapComponent,
+    MapEditComponent,
+    HexMapComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing,
+    NgPipesModule
   ],
-  providers: [],
+  providers: [MapsService, HexDrawService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
