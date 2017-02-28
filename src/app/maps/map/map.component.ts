@@ -8,16 +8,18 @@ import {HexMapComponent} from "./hex-map.component";
   selector: 'app-map',
   templateUrl: './map.component.html'
 })
+
 export class MapComponent implements OnInit {
 
   @ViewChild(HexMapComponent) hexMap: HexMapComponent;
 
   mapId :string;
-  map: MapInfo = null;
+  map: MapInfo;
   savedMap: MapInfo = null;
   loaded: boolean = false;
   constructor(private router : Router, private activatedRoute : ActivatedRoute, private maps: MapsService) {
     this.mapId = activatedRoute.snapshot.params['id'];
+    this.map = new MapInfo();
 
   }
 

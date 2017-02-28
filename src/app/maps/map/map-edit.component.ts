@@ -11,6 +11,8 @@ import {HexMapComponent} from "./hex-map.component";
   styles: []
 })
 export class MapEditComponent implements OnInit, OnChanges, DoCheck {
+  SIN  = Math.sin(Math.PI / 3);
+
 
   @ViewChild(HexMapComponent) hexMap: HexMapComponent;
 
@@ -23,12 +25,22 @@ export class MapEditComponent implements OnInit, OnChanges, DoCheck {
   }
 
   ngDoCheck(){
+
+    console.log("MapComponent");
+    if(this.map){
+      if(this.map.perfectHexes){
+        let hexside = this.map.c;
+        this.map.a =  hexside / 2;
+        this.map.b =  hexside * this.SIN;
+      }
+    }
     this.hexMap.refresh(this.map);
   }
 
   ngOnChanges(arg){
     console.log("MapEdit Changes ");
   }
+
   ngOnInit() {
     this.maps.fetchData((maps)=>{
         this.map = maps.getMap(this.mapId);

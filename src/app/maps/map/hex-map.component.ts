@@ -1,4 +1,4 @@
-import { Component, OnInit,Input , OnChanges} from '@angular/core';
+import {Component, OnInit, Input, OnChanges, DoCheck} from '@angular/core';
 import { MapInfo } from '../map-info';
 import {HexDrawService} from "./hex-draw.service";
 import { MapsService } from "../../maps.service";
@@ -8,11 +8,15 @@ import { MapsService } from "../../maps.service";
   templateUrl: './hex-map.component.html',
   styles: []
 })
-export class HexMapComponent implements OnInit , OnChanges {
+export class HexMapComponent implements OnInit , OnChanges , DoCheck  {
 
   loaded: boolean = false;
   @Input() map: MapInfo;
   @Input() mapId: string;
+
+  ngDoCheck(){
+    console.log("HexMap Do check");
+  }
 
   ngOnChanges(changes) {
     console.log("NgChan"+ changes);
@@ -22,8 +26,10 @@ export class HexMapComponent implements OnInit , OnChanges {
 
   mapLoaded(){
     console.log("Map;Loaded");
+    debugger;
     this.hexDraw.resize();
     if(this.map){
+      this.refresh(this.map);
       this.hexDraw.doDraw(this.map.numX, this.map.numY);
     }
 
@@ -32,6 +38,7 @@ export class HexMapComponent implements OnInit , OnChanges {
   refresh(map){
     console.log("Refreshing! ");
     console.log(map);
+    console.log(this.map);
     if(map){
       this.hexDraw.setMap(map);
       this.hexDraw.doDraw(map.numX, map.numY);
