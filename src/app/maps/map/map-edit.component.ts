@@ -14,19 +14,32 @@ export class MapEditComponent implements OnInit, OnChanges, DoCheck {
   SIN  = Math.sin(Math.PI / 3);
 
 
+  keyEvent(event, name){
+    if(event.key === "ArrowUp"){
+      this.map[name]++;
+      return false;
+
+    }
+    if(event.key === "ArrowDown"){
+      this.map[name]--;
+      return false;
+
+    }
+    return true;
+  }
   @ViewChild(HexMapComponent) hexMap: HexMapComponent;
 
   mapId :string ;
   savedMap : MapInfo = null;
-  map: MapInfo = null;
+  map: MapInfo;
   loaded: boolean = false;
   constructor(private router : Router, private activatedRoute : ActivatedRoute, private maps: MapsService) {
     this.mapId = activatedRoute.snapshot.params['id'];
+    this.map = new MapInfo();
   }
 
   ngDoCheck(){
 
-    console.log("MapComponent");
     if(this.map){
       if(this.map.perfectHexes){
         let hexside = this.map.c;
@@ -38,7 +51,6 @@ export class MapEditComponent implements OnInit, OnChanges, DoCheck {
   }
 
   ngOnChanges(arg){
-    console.log("MapEdit Changes ");
   }
 
   ngOnInit() {
@@ -46,18 +58,14 @@ export class MapEditComponent implements OnInit, OnChanges, DoCheck {
         this.map = maps.getMap(this.mapId);
         this.loaded = true;
         this.savedMap = Object.assign({}, this.map);
-        console.log(this.savedMap.mapUrl);
         this.hexMap.refresh(this.map);
       }
     );
   }
   save(){
-    console.log("Saving" );
     this.maps.saveData(this.mapId, {map: this.map}, maps =>{
-      console.log("save");
       Object.assign(this.savedMap, this.map);
       this.router.navigateByUrl('/maps/'+this.mapId);
-      console.log(this.savedMap.mapUrl);
     });
 
 
@@ -66,8 +74,6 @@ export class MapEditComponent implements OnInit, OnChanges, DoCheck {
   cancel(){
     Object.assign(this.map, this.savedMap);
     this.router.navigateByUrl('/maps/'+this.mapId);
-    console.log(this.savedMap.mapUrl);
-
   }
 
 }

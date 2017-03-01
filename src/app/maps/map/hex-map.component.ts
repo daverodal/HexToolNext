@@ -15,18 +15,14 @@ export class HexMapComponent implements OnInit , OnChanges , DoCheck  {
   @Input() mapId: string;
 
   ngDoCheck(){
-    console.log("HexMap Do check");
   }
 
   ngOnChanges(changes) {
-    console.log("NgChan"+ changes);
   }
 
   constructor(private hexDraw : HexDrawService,  private maps: MapsService) { }
 
   mapLoaded(){
-    console.log("Map;Loaded");
-    debugger;
     this.hexDraw.resize();
     if(this.map){
       this.refresh(this.map);
@@ -36,9 +32,7 @@ export class HexMapComponent implements OnInit , OnChanges , DoCheck  {
   }
 
   refresh(map){
-    console.log("Refreshing! ");
-    console.log(map);
-    console.log(this.map);
+
     if(map){
       this.hexDraw.setMap(map);
       this.hexDraw.doDraw(map.numX, map.numY);
