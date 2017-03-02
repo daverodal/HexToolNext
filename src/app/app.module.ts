@@ -20,6 +20,9 @@ import { MapsService } from './maps.service';
 import { MapEditComponent } from './maps/map/map-edit.component';
 import {HexDrawService} from "./maps/map/hex-draw.service";
 import { HexMapComponent } from './maps/map/hex-map.component';
+import { MapHexesComponent } from './maps/map/map-hexes.component';
+import { HexPickService } from './maps/map/hex-pick.service';
+import { HexPartService } from './maps/map/hex-part.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { HexMapComponent } from './maps/map/hex-map.component';
     MapItemComponent,
     MapComponent,
     MapEditComponent,
-    HexMapComponent
+    HexMapComponent,
+    MapHexesComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,7 @@ import { HexMapComponent } from './maps/map/hex-map.component';
     routing,
     NgPipesModule
   ],
-  providers: [MapsService, HexDrawService],
+  providers: [MapsService, HexDrawService, HexPickService, HexPartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
