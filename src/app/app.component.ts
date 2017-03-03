@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  public toggled(open:boolean):void {
+    console.log('Dropdown is now: ', open);
+  }
+  
 }

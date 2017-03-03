@@ -21,7 +21,8 @@
       "styles": [
         "styles.css",
         "third.css",
-        "otherstyles.scss"
+        "otherstyles.scss",
+        "../node_modules/bootstrap"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

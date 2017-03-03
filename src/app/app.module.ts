@@ -23,6 +23,7 @@ import { HexMapComponent } from './maps/map/hex-map.component';
 import { MapHexesComponent } from './maps/map/map-hexes.component';
 import { HexPickService } from './maps/map/hex-pick.service';
 import { HexPartService } from './maps/map/hex-part.service';
+import { ClickableHexMapComponent } from './maps/map/clickable-hex-map.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HexPartService } from './maps/map/hex-part.service';
     MapComponent,
     MapEditComponent,
     HexMapComponent,
-    MapHexesComponent
+    MapHexesComponent,
+    ClickableHexMapComponent
   ],
   imports: [
     BrowserModule,
