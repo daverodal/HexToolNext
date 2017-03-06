@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 
 
 @Component({
-  selector: 'app-maps',
+  selector: 'htn-maps',
   templateUrl: './maps.component.html',
   styleUrls: ['./maps.component.css']
 })

@@ -5,7 +5,7 @@ import { MapsService } from "../../maps.service";
 import {HexPickService} from "./hex-pick.service";
 
 @Component({
-  selector: 'app-hex-map',
+  selector: 'htn-hex-map',
   templateUrl: './hex-map.component.html',
   styles: []
 })
@@ -24,6 +24,7 @@ export class HexMapComponent implements OnInit , OnChanges , DoCheck  {
     console.log(this.hexPick.number);
     console.log(this.hexPick.getX());
     console.log(this.hexPick.getY());
+    console.log(this.hexPick.getHexpartType());
 
 
   }

@@ -6,7 +6,7 @@ import {MapsService} from "../../maps.service";
 import {ClickableHexMapComponent} from "./clickable-hex-map.component";
 
 @Component({
-  selector: 'app-map-hexes',
+  selector: 'htn-map-hexes',
   templateUrl: './map-hexes.component.html',
   styles: []
 })

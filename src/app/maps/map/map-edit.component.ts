@@ -6,7 +6,7 @@ import {HexMapComponent} from "./hex-map.component";
 
 
 @Component({
-  selector: 'app-map-edit',
+  selector: 'htn-map-edit',
   templateUrl: './map-edit.component.html',
   styles: []
 })

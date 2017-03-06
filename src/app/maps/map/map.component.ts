@@ -5,7 +5,7 @@ import { MapInfo } from "../map-info";
 import {HexDrawService} from "./hex-draw.service";
 import {HexMapComponent} from "./hex-map.component";
 @Component({
-  selector: 'app-map',
+  selector: 'htn-map',
   templateUrl: './map.component.html'
 })
 

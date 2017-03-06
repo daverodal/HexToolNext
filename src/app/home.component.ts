@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'htn-home',
   template: `
-    <p>
-      home Works!
-    </p>
+  <div class="">
+    <span class="breadcrumb-item active" [routerLink]="['']">home</span>&nbsp;
+  </div>
+  <a class="breadcrumb-item" [routerLink]="['maps']">maps</a>
   `,
   styles: []
 })

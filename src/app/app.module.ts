@@ -5,11 +5,8 @@ import { HttpModule } from '@angular/http';
 import { NgPipesModule } from 'ngx-pipes';
 
 
-import { AppComponent } from './app.component';
-import { DatabindingComponent } from './databinding/databinding.component';
-import { PropertyBindingComponent } from './databinding/property-binding.component';
-import { EventBindingComponent } from './databinding/event-binding.component';
-import { TwoWayBindingComponent } from './databinding/two-way-binding.component';
+import { HtnComponent } from './htn.component';
+
 import { LifecycleComponent } from './lifecycle.component';
 import { HomeComponent } from './home.component';
 import { routing } from "./app.routing";
@@ -27,11 +24,7 @@ import { ClickableHexMapComponent } from './maps/map/clickable-hex-map.component
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DatabindingComponent,
-    PropertyBindingComponent,
-    EventBindingComponent,
-    TwoWayBindingComponent,
+    HtnComponent,
     LifecycleComponent,
     HomeComponent,
     MapsComponent,
@@ -50,6 +43,6 @@ import { ClickableHexMapComponent } from './maps/map/clickable-hex-map.component
     NgPipesModule
   ],
   providers: [MapsService, HexDrawService, HexPickService, HexPartService],
-  bootstrap: [AppComponent]
+  bootstrap: [HtnComponent]
 })
 export class AppModule { }

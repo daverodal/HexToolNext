@@ -139,6 +139,9 @@ export class HexPickService {
   }
   this.number =  x * 100 + y;
 }
+  getHexpartType(){
+    return this.hexPartService.getHexpartType();
+  }
   calculateHexagonFromPixels()
 {
 

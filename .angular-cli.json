@@ -17,11 +17,11 @@
       "polyfills": "polyfills.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.json",
-      "prefix": "app",
+      "prefix": "htn",
       "styles": [
         "styles.css",
         "third.css",
-        "otherstyles.scss",
+        "otherstyles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
