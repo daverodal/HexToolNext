@@ -78,5 +78,21 @@ export class MapsService {
       }
     }
   }
+  fetchHexData(hexstr, callback){
+    // if(this.isFetched === true){
+    //   callback(this);
+    //   return;
+    // }
+    // this.isFetched = true;
+    debugger;
+    return this.http.get('/rest/hexStrs/' + hexstr)
+      .map((response: Response) => response.json())
+      .subscribe(
+        (data: any) => {
+          debugger;
+          callback(JSON.parse(data.hexStr.hexEncodedStr));
+        }
+      );
+  }
 
 }

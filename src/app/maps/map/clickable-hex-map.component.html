@@ -1,0 +1,26 @@
+<div id="clickable-hex-map-wrapper">
+  <div class="hexHeaderRight">
+
+
+    <select [(ngModel)]="selectedValue">
+      <option *ngFor="let prop of terrainPropArray" [ngValue]="prop">{{prop.key}}</option>
+    </select>
+
+    <div style="float:left;" *ngFor="let prop of terrainPropArray">
+      <span [ngStyle]="{color: prop.color }">{{prop.disp }}</span> => {{ prop.key }},
+    </div>
+  </div>
+  <div style="clear:both"></div>
+
+<div id="map-wrapper"  (click)="clickMe($event)">
+
+  <canvas [ngStyle]="{left: map.x +'px', top:map.y +'px'}" id="canvas-id" width="0" height="0"></canvas>
+  <img id="map-image" (load)="mapLoaded()" *ngIf="map" [ngStyle]="{width:map.mapWidth ? map.mapWidth+'px': 'auto'}" src="{{map.mapUrl}}">
+  <div style="position:relative;left:-9px;top:-11px;" class="terainWrapper">
+    <div *ngFor="let ter of terrain" id="{{ter.name}}" [ngStyle]="{background:'white', position: 'absolute', left: ter.x, top:ter.y}">
+      <span *ngFor="let type of ter.type" [ngStyle]="{fontSize: '13px', color:terrainProperty.mapper[type.name].color}">{{terrainProperty.mapper[type.name].disp}}</span>
+    </div>
+  </div>
+</div>
+
+</div>

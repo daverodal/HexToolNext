@@ -15,7 +15,7 @@ import { MapItemComponent } from './maps/map-item.component';
 import { MapComponent } from './maps/map/map.component';
 import { MapsService } from './maps.service';
 import { MapEditComponent } from './maps/map/map-edit.component';
-import {HexDrawService} from "./maps/map/hex-draw.service";
+import {HexDrawService} from './maps/map/hex-draw.service';
 import { HexMapComponent } from './maps/map/hex-map.component';
 import { MapHexesComponent } from './maps/map/map-hexes.component';
 import { HexPickService } from './maps/map/hex-pick.service';
