@@ -95,4 +95,16 @@ export class MapsService {
       );
   }
 
+  saveHexData(id, data,callback){
+    const headers = new Headers;
+    headers.append('Content-Type', 'application/json');
+    let jsonData = JSON.stringify(data);
+    return this.http.put('/rest/hexStrs/'+ id, jsonData, {headers:headers})
+      .map((response: Response) => response.json())
+      .subscribe(
+        (data: any) => {
+          callback(data);
+        }
+      )
+  }
 }

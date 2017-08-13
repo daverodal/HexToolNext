@@ -32,19 +32,8 @@ export class MapHexesComponent implements OnInit {
 
   }
 
-  meclickfeel(){
-    debugger;
-    if(this.terrain.length > 0){
-      this.saveTerrain = this.terrain;
-      this.terrain = [];
-    }else {
-      this.terrain = this.saveTerrain;
-
-    }
-
-  }
-
   ngOnInit() {
+    console.log("NgOnInit");
     debugger;
     this.maps.fetchData((maps) => {
         this.map = maps.getMap(this.mapId);
@@ -52,6 +41,7 @@ export class MapHexesComponent implements OnInit {
         this.savedMap = Object.assign({}, this.map);
         debugger;
         this.maps.fetchHexData(this.map.hexStr, (arg) => {
+          console.log("RefetchData");
           this.terrain = arg;
           debugger;
         });

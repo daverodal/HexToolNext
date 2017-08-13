@@ -46,6 +46,7 @@ export class HexPickService {
 
   myInit(mapData: MapInfo)
   {
+    debugger;
   var b = <number>mapData.b - 0;
   var a = <number>mapData.a - 0;
   var c = <number>mapData.c - 0;

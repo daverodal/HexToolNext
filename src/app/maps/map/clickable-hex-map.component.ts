@@ -5,6 +5,7 @@ import { MapsService } from '../../maps.service';
 import {HexPickService} from './hex-pick.service';
 import {TerrainProperty} from './terrain-property';
 import * as _ from 'lodash';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,6 +15,8 @@ import * as _ from 'lodash';
 })
 export class ClickableHexMapComponent implements OnInit, DoCheck, OnChanges{
 
+  seeOnlySelected = false;
+  seeAny = true;
   loaded = false;
   @Input() map: MapInfo;
   @Input() mapId: string;
@@ -23,6 +26,8 @@ export class ClickableHexMapComponent implements OnInit, DoCheck, OnChanges{
   selectedValue;
 
   clickMe($event  ){
+    debugger;
+
     let x = $event.offsetX;
     let y = $event.offsetY;
     console.log('( ' + $event.offsetX + ' , ' + $event.offsetY + ' )');
@@ -36,27 +41,50 @@ export class ClickableHexMapComponent implements OnInit, DoCheck, OnChanges{
     console.log(this.hexPick.getHexpartType());
     const foundTerrain = this.terrain.find( x => x.name === terrainName);
     console.log(foundTerrain);
-    const isTerrain = foundTerrain.type.find( x => x.name === this.selectedValue.key);
 
     const filterKey = this.selectedValue.key;
-    if (!isTerrain) {
-      foundTerrain.type.push({name: this.selectedValue.key});
-    }else{
-      _.remove(foundTerrain.type, (obj:any) => {
-        return obj.name === filterKey;
-      });
+    if(foundTerrain) {
+      const isTerrain = foundTerrain.type.find( x => x.name === this.selectedValue.key);
+      if (!isTerrain) {
+        foundTerrain.type.push({name: this.selectedValue.key});
+      } else {
+        _.remove(foundTerrain.type, (obj: any) => {
+          return obj.name === filterKey;
+        });
+      }
+    } else {
+      debugger;
+      this.hexPick.setHexpartXY(this.hexPick.getX(), this.hexPick.getY());
+      const newTerrain = {name: terrainName ,
+        x: this.hexPick.getPixelX() + 3 +  'px',
+        y: this.hexPick.getPixelY() + 'px', number: this.hexPick.number, hexpartType : this.hexPick.getHexpartType(),
+        type: [ { name: this.selectedValue.key} ]};
+      this.terrain.push(newTerrain);
     }
     debugger;
 
 
   }
+
+  saveHex(){
+
+    this.maps.saveHexData(this.map.hexStr, {hexStr: {map: this.mapId, hexEncodedStr: JSON.stringify(this.terrain)}}, (arg) => {
+      debugger;
+      this.router.navigate(['/maps/' + this.mapId]);
+    });
+  }
+
+  cancelHex() {
+    this.router.navigate(['/maps/' + this.mapId]);
+  }
+
   ngDoCheck() {
   }
 
   ngOnChanges(changes) {
   }
 
-  constructor(private hexDraw: HexDrawService,  private maps: MapsService, private hexPick: HexPickService) {
+  constructor(private router: Router, private hexDraw: HexDrawService,  private maps: MapsService, private hexPick: HexPickService) {
 
     this.terrainProperty = new TerrainProperty();
 
