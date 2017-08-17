@@ -18,6 +18,11 @@ export class MapsComponent implements OnInit {
   constructor(private http:Http, private mapService : MapsService) {
   }
 
+  newMap(){
+    this.mapService.newData((arg) => {
+      debugger;
+    });
+  }
   ngOnInit() {
     this.mapService.fetchData((mS)=>{this.maps = mS.maps;});
 

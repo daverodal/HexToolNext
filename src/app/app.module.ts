@@ -21,6 +21,7 @@ import { MapHexesComponent } from './maps/map/map-hexes.component';
 import { HexPickService } from './maps/map/hex-pick.service';
 import { HexPartService } from './maps/map/hex-part.service';
 import { ClickableHexMapComponent } from './maps/map/clickable-hex-map.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ClickableHexMapComponent } from './maps/map/clickable-hex-map.component
     FormsModule,
     HttpModule,
     routing,
-    NgPipesModule
+    NgPipesModule,
+    FlashMessagesModule
   ],
   providers: [MapsService, HexDrawService, HexPickService, HexPartService],
   bootstrap: [HtnComponent]

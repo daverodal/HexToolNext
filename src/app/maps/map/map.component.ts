@@ -17,10 +17,32 @@ export class MapComponent implements OnInit {
   map: MapInfo;
   savedMap: MapInfo = null;
   loaded = false;
+  publishing = false;
   constructor(private router : Router, private activatedRoute : ActivatedRoute, private maps: MapsService) {
     this.mapId = activatedRoute.snapshot.params['id'];
     this.map = new MapInfo();
 
+  }
+
+  cloneMe(){
+    debugger;
+    let pubUrl = '/rest/cloneFile/' + this.map.id;
+    this.publishing = true;
+    this.maps.publish(pubUrl, (arg) => {
+      debugger;
+      this.publishing = false;
+    });
+  }
+  publishMe(){
+    let pubUrl = '';
+    debugger;
+    let map = this.map;
+    pubUrl = '/wargame/terrainInit/'+map.gameName + "/" + map.scenarioName + "/" + map.hexStr;
+    this.publishing = true;
+    this.maps.publish(pubUrl, (arg) => {
+      debugger;
+      this.publishing = false;
+    });
   }
 
   ngOnInit() {
@@ -28,7 +50,7 @@ export class MapComponent implements OnInit {
         this.map = maps.getMap(this.mapId);
         this.loaded = true;
         this.hexMap.refresh(this.map);
-    }
+    },
     );
   }
 

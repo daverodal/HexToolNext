@@ -5,6 +5,11 @@
 </div><div *ngIf="map">
   <a [routerLink]="'edit'">edit</a>
   <a [routerLink]="'hexes'">hexes</a>
+  <br>
+  <button class="btn btn-sm btn-primary" (click)="publishMe()">Publish!</button>
+  <button class="btn btn-sm btn-sedondary" (click)="cloneMe()">Clone!</button>
+
+  <div *ngIf="publishing"> <i class="fa fa-spinner fa-pulse"></i></div>
   <div class="container">
     <div class="row">
       <div class="col-3 text-right">Url:</div>
