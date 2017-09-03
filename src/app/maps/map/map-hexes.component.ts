@@ -28,22 +28,17 @@ export class MapHexesComponent implements OnInit {
   constructor(private router : Router, private activatedRoute : ActivatedRoute, private maps: MapsService) {
     this.mapId = activatedRoute.snapshot.params['id'];
     this.map = new MapInfo();
-    debugger;
-
   }
 
   ngOnInit() {
     console.log("NgOnInit");
-    debugger;
     this.maps.fetchData((maps) => {
         this.map = maps.getMap(this.mapId);
         this.loaded = true;
         this.savedMap = Object.assign({}, this.map);
-        debugger;
         this.maps.fetchHexData(this.map.hexStr, (arg) => {
           console.log("RefetchData");
           this.terrain = arg;
-          debugger;
         });
         // this.hexMap.refresh(this.map);
       }

@@ -25,23 +25,42 @@ export class MapComponent implements OnInit {
   }
 
   cloneMe(){
-    debugger;
     let pubUrl = '/rest/cloneFile/' + this.map.id;
     this.publishing = true;
     this.maps.publish(pubUrl, (arg) => {
       debugger;
       this.publishing = false;
+      this.router.navigate(['/maps/', arg.mapId]);
+
     });
   }
   publishMe(){
     let pubUrl = '';
-    debugger;
     let map = this.map;
     pubUrl = '/wargame/terrainInit/'+map.gameName + "/" + map.scenarioName + "/" + map.hexStr;
     this.publishing = true;
     this.maps.publish(pubUrl, (arg) => {
-      debugger;
       this.publishing = false;
+    });
+  }
+
+  deleteMe() {
+    var txt;
+    var ret = confirm("really, really delete");
+
+    if (!ret) {
+      return;
+    }
+    debugger;
+    const hexStr = this.map.hexStr;
+    this.maps.deleteHexData(hexStr, () => {
+      this.maps.deleteMapData(this.map.id, () => {
+
+        this.router.navigate(['/maps/']);
+
+        debugger;
+      });
+      debugger;
     });
   }
 

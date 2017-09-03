@@ -23,7 +23,6 @@ export class HexMapComponent implements OnInit , OnChanges , DoCheck  {
   }
 
   constructor(private hexDraw : HexDrawService,  private maps: MapsService, private hexPick: HexPickService) {
-    debugger;
   }
 
   mapLoaded(){
