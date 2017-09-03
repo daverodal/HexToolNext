@@ -26,7 +26,6 @@ export class ClickableHexMapComponent implements OnInit, DoCheck, OnChanges{
   selectedValue;
 
   clickMe($event  ){
-    debugger;
 
     let x = $event.offsetX;
     let y = $event.offsetY;
@@ -53,7 +52,6 @@ export class ClickableHexMapComponent implements OnInit, DoCheck, OnChanges{
         });
       }
     } else {
-      debugger;
       this.hexPick.setHexpartXY(this.hexPick.getX(), this.hexPick.getY());
       const newTerrain = {name: terrainName ,
         x: this.hexPick.getPixelX() + 3 +  'px',
@@ -61,7 +59,6 @@ export class ClickableHexMapComponent implements OnInit, DoCheck, OnChanges{
         type: [ { name: this.selectedValue.key} ]};
       this.terrain.push(newTerrain);
     }
-    debugger;
 
 
   }
@@ -69,7 +66,6 @@ export class ClickableHexMapComponent implements OnInit, DoCheck, OnChanges{
   saveHex(){
 
     this.maps.saveHexData(this.map.hexStr, {hexStr: {map: this.mapId, hexEncodedStr: JSON.stringify(this.terrain)}}, (arg) => {
-      debugger;
       this.router.navigate(['/maps/' + this.mapId]);
     });
   }
@@ -89,7 +85,6 @@ export class ClickableHexMapComponent implements OnInit, DoCheck, OnChanges{
     this.terrainProperty = new TerrainProperty();
 
     const arr = [];
-    debugger;
     const theMap = this.terrainProperty.mapper;
     for (const key in theMap){
       if (theMap.hasOwnProperty(key)) {
@@ -99,13 +94,11 @@ export class ClickableHexMapComponent implements OnInit, DoCheck, OnChanges{
     }
     this.terrainPropArray = arr;
     this.selectedValue = this.terrainPropArray[0];
-    debugger;
   }
 
   mapLoaded(){
     this.hexDraw.resize();
     if(this.map){
-      debugger;
       this.refresh(this.map);
       this.hexDraw.doDraw(this.map.numX, this.map.numY);
     }
