@@ -27,9 +27,10 @@ export class ClickableHexMapComponent implements OnInit, DoCheck, OnChanges{
 
   clickMe($event  ){
 
-    let x = $event.offsetX;
-    let y = $event.offsetY;
+    let x = $event.offsetX + this.map.x;
+    let y = $event.offsetY + this.map.y;
     console.log('( ' + $event.offsetX + ' , ' + $event.offsetY + ' )');
+    console.log('[ ' + x + ' , ' + y + ' ]');
     this.hexPick.myInit(this.map);
     this.hexPick.setPixels(x, y);
 

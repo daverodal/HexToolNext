@@ -1,14 +1,14 @@
 <div *ngIf="loaded">
   <button class="btn-primary btn btn-sm" (click)="save()">Save </button>
   <button class="btn-secondary btn btn-sm" (click)="cancel()">Cancel </button>
-  MapUrl <input [(ngModel)]="map.mapUrl">
-  Num X <input (keydown)="keyEvent($event, 'numX')" [(ngModel)]="map.numX">
-  Num Y<input (keydown)="keyEvent($event, 'numY')" [(ngModel)]="map.numY">
+  <label>MapUrl <input [(ngModel)]="map.mapUrl"></label>
+  <label>Numb X <input (keydown)="keyEvent($event, 'numX')" [(ngModel)]="map.numX"></label>
+  <label>Num Y<input (keydown)="keyEvent($event, 'numY')" [(ngModel)]="map.numY"></label><br>
   X <input (keydown)="keyEvent($event, 'x')" [(ngModel)]="map.x">
   Y<input (keydown)="keyEvent($event, 'y')" [(ngModel)]="map.y">
-  A <input (keydown)="keyEvent($event, 'a')" [(ngModel)]="map.a">
-  B <input (keydown)="keyEvent($event, 'b')" [(ngModel)]="map.b">
-  C <input (keydown)="keyEvent($event, 'c')" [(ngModel)]="map.c">
+  <label *ngIf="!map.perfectHexes">A <input  (keydown)="keyEvent($event, 'a')" [(ngModel)]="map.a"></label>
+  <label *ngIf="!map.perfectHexes">B <input (keydown)="keyEvent($event, 'b')" [(ngModel)]="map.b"></label>
+  C <input (keydown)="keyEvent($event, 'c')" [(ngModel)]="map.c"><br>
   Width <input (keydown)="keyEvent($event, 'mapWidth')" [(ngModel)]="map.mapWidth">
   Perfect Hexes<input type="checkbox" [(ngModel)]="map.perfectHexes">
   Is Default <input type="checkbox" [(ngModel)]="map.isDefault">
