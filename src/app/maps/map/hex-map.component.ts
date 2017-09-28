@@ -15,19 +15,7 @@ export class HexMapComponent implements OnInit , OnChanges , DoCheck  {
   @Input() map: MapInfo;
   @Input() mapId: string;
 
-  clickMe($event  ){
-    let x = $event.offsetX;
-    let y = $event.offsetY;
-    console.log('( '+$event.offsetX+' , '+$event.offsetY + ' )');
-    this.hexPick.myInit(this.map);
-    this.hexPick.setPixels(x, y);
-    console.log(this.hexPick.number);
-    console.log(this.hexPick.getX());
-    console.log(this.hexPick.getY());
-    console.log(this.hexPick.getHexpartType());
 
-
-  }
   ngDoCheck(){
   }
 

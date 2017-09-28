@@ -1,5 +1,15 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap/scss/mixins";
+$fa-font-path: '~font-awesome/fonts';
+@import "~font-awesome/scss/font-awesome";
+
+.flashy{
+  width: 50%;
+  margin: auto;
+  border:10px solid #aaa;
+  border-radius: 10px;
+
+}
 ul{
   list-style-type:none;
 }

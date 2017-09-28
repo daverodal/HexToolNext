@@ -15,12 +15,13 @@ import { MapItemComponent } from './maps/map-item.component';
 import { MapComponent } from './maps/map/map.component';
 import { MapsService } from './maps.service';
 import { MapEditComponent } from './maps/map/map-edit.component';
-import {HexDrawService} from "./maps/map/hex-draw.service";
+import {HexDrawService} from './maps/map/hex-draw.service';
 import { HexMapComponent } from './maps/map/hex-map.component';
 import { MapHexesComponent } from './maps/map/map-hexes.component';
 import { HexPickService } from './maps/map/hex-pick.service';
 import { HexPartService } from './maps/map/hex-part.service';
 import { ClickableHexMapComponent } from './maps/map/clickable-hex-map.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ClickableHexMapComponent } from './maps/map/clickable-hex-map.component
     FormsModule,
     HttpModule,
     routing,
-    NgPipesModule
+    NgPipesModule,
+    FlashMessagesModule
   ],
   providers: [MapsService, HexDrawService, HexPickService, HexPartService],
   bootstrap: [HtnComponent]
