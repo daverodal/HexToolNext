@@ -7,6 +7,7 @@
   "apps": [
     {
       "root": "src",
+      "outLocDir": "/Users/david/game-dispatcher/public/postneo",
       "outDir": "dist",
       "assets": [
         "assets",

@@ -62,7 +62,16 @@ export class MapEditComponent implements OnInit, OnChanges, DoCheck {
       }
     );
   }
-  save(){
+  save() {
+    this.map.x = this.map.x - 0;
+    this.map.y = this.map.y - 0;
+    this.map.a = this.map.a - 0;
+    this.map.b = this.map.b - 0;
+    this.map.c = this.map.c - 0;
+    this.map.numX = this.map.numX - 0;
+    this.map.numY = this.map.numY - 0;
+
+
     this.maps.saveData(this.mapId, {map: this.map}, maps =>{
       Object.assign(this.savedMap, this.map);
       this.router.navigateByUrl('/maps/'+this.mapId);
