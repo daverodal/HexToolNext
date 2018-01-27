@@ -3,6 +3,16 @@
 $fa-font-path: '~font-awesome/fonts';
 @import "~font-awesome/scss/font-awesome";
 
+.container.map-edit{
+
+  margin-left: 20px;
+  input{
+  }
+}
+.map-url-input{
+  width:700px;
+}
+
 .flashy{
   width: 50%;
   margin: auto;

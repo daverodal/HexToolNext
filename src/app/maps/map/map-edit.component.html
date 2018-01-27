@@ -1,20 +1,42 @@
-<div *ngIf="loaded">
-  <button class="btn-primary btn btn-sm" (click)="save()">Save </button>
-  <button class="btn-secondary btn btn-sm" (click)="cancel()">Cancel </button>
-  <label>MapUrl <input [(ngModel)]="map.mapUrl"></label>
-  <label>Numb X <input (keydown)="keyEvent($event, 'numX')" [(ngModel)]="map.numX"></label>
-  <label>Num Y<input (keydown)="keyEvent($event, 'numY')" [(ngModel)]="map.numY"></label><br>
-  X <input (keydown)="keyEvent($event, 'x')" [(ngModel)]="map.x">
-  Y<input (keydown)="keyEvent($event, 'y')" [(ngModel)]="map.y">
-  <label *ngIf="!map.perfectHexes">A <input  (keydown)="keyEvent($event, 'a')" [(ngModel)]="map.a"></label>
-  <label *ngIf="!map.perfectHexes">B <input (keydown)="keyEvent($event, 'b')" [(ngModel)]="map.b"></label>
-  C <input (keydown)="keyEvent($event, 'c')" [(ngModel)]="map.c"><br>
-  Width <input (keydown)="keyEvent($event, 'mapWidth')" [(ngModel)]="map.mapWidth">
-  Perfect Hexes<input type="checkbox" [(ngModel)]="map.perfectHexes">
-  Is Default <input type="checkbox" [(ngModel)]="map.isDefault">
-  True Rows<input type="checkbox" [(ngModel)]="map.trueRows">
-  Game Name <input [(ngModel)]="map.gameName">
-  Scenario Name <input [(ngModel)]="map.scenarioName">
+<div class="map-edit container" *ngIf="loaded">
+
+  <div class="row">
+    <label class="col-xs-12">MapUrl <input class="map-url-input" [(ngModel)]="map.mapUrl"></label>
+
+  </div>
+  <div class="row">
+      <label class="col-3"># X <input (keydown)="keyEvent($event, 'numX')" [(ngModel)]="map.numX"></label>
+      <label class="col-3"># Y <input (keydown)="keyEvent($event, 'numY')" [(ngModel)]="map.numY"></label>
+  </div>
+
+  <div class="row">
+    <label class="col-3">X <input (keydown)="keyEvent($event, 'x')" [(ngModel)]="map.x"></label>
+    <label class="col-3">Y <input (keydown)="keyEvent($event, 'y')" [(ngModel)]="map.y"></label>
+  </div>
+  <div class="row">
+    <label class="col-3" *ngIf="!map.perfectHexes">A <input  (keydown)="keyEvent($event, 'a')" [(ngModel)]="map.a"></label>
+    <label class="col-3" *ngIf="!map.perfectHexes">B <input (keydown)="keyEvent($event, 'b')" [(ngModel)]="map.b"></label>
+    <label class="col-3">C <input (keydown)="keyEvent($event, 'c')" [(ngModel)]="map.c"></label>
+
+  </div>
+  <div class="row">
+    <label class="col-3">Width <input (keydown)="keyEvent($event, 'mapWidth')" [(ngModel)]="map.mapWidth"></label>
+    <label class="col-3">Perfect Hexes <input type="checkbox" [(ngModel)]="map.perfectHexes"></label>
+    <label class="col-3">True Rows <input type="checkbox" [(ngModel)]="map.trueRows"></label>
+  </div>
+
+  <div class="row">
+    <label class="col-4">Game Name <input [(ngModel)]="map.gameName"></label>
+    <label class="col-4">Scenario Name <input [(ngModel)]="map.scenarioName"></label>
+    <label class="col-2">Is Default <input type="checkbox" [(ngModel)]="map.isDefault"></label>
+  </div>
+
+
+  <div class="row">
+    <button class="btn-primary btn btn-sm" (click)="save()">Save </button>&nbsp;
+    <button class="btn-secondary btn btn-sm" (click)="cancel()">Cancel </button>
+  </div>
 
 </div>
+<hr>
 <htn-hex-map [map]="map" [mapId]="mapId"></htn-hex-map>
